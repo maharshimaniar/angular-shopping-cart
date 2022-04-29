@@ -1,0 +1,14 @@
+<div *ngIf="product">
+    <h3>{{product.name}}</h3>
+    <p>{{product.description}}</p>
+    <h4>{{product.price}}</h4>
+    <div *ngIf="!added">
+        <button (click)="buyItem(product)">Buy Now!</button>
+    </div>
+    <div *ngIf="added" class="button-div">
+        <button (click)="removeItem(product.id)">-</button>
+        <h4>{{product.quantity}}</h4>
+        <button (click)="addItem(product)">+</button>
+    </div>
+</div>
+<div *ngIf="!product" class="error"><p>Some Error Occured!</p></div>

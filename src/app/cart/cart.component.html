@@ -1,0 +1,16 @@
+<h3>Cart</h3>
+<div *ngIf="cartItems">
+  <div *ngFor="let item of cartItems" class="cart-item">
+    <h3>{{ item.name }}</h3>
+    <h4>{{ item.price | currency }}</h4>
+    <p>{{ item.description }}</p>
+    <div class="button-div">
+        <button (click)="removeItem(item.id)">-</button>
+        <h4>{{item.quantity}}</h4>
+        <button (click)="addItem(item)">+</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="cartItems.length === 0" class="error">
+  <p>No Items in Cart.</p>
+</div>
